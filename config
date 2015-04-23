@@ -12,7 +12,7 @@
 #
 # Requirements:
 # - i3-py
-# - xdotools
+# - xdotool
 
 set $mod Mod4
 
