@@ -30,7 +30,8 @@ font pango:Bitstream Vera Sans Mono 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -270,6 +271,7 @@ bindsym $mod+Ctrl+Shift+6 exec ~/.i3/movegoto 6
 bindsym $mod+Ctrl+Shift+7 exec ~/.i3/movegoto 7
 bindsym $mod+Ctrl+Shift+8 exec ~/.i3/movegoto 8
 bindsym $mod+Ctrl+Shift+9 exec ~/.i3/movegoto 9
+bindsym $mod+Ctrl+Shift+agrave     exec ~/.i3/movegoto 10
 
 bindsym $mod+t exec ~/.i3/goto
 bindsym $mod+Shift+t exec ~/.i3/moveto
