@@ -81,5 +81,8 @@ TEXT
 {"full_text":"${tztime Asia/Tokyo %H:%M}","color":"\#EEEEEE","separator":false},\
 # Time (fr)
 {"full_text":"FR","color":"\#888888","separator":false,"separator_block_width":6},\
-{"full_text":"${tztime Europe/Paris %H:%M}","color":"\#EEEEEE","separator":false}\
+{"full_text":"${tztime Europe/Paris %H:%M}","color":"\#EEEEEE","separator":false},\
+# Time (us)
+{"full_text":"US","color":"\#888888","separator":false,"separator_block_width":6},\
+{"full_text":"${tztime America/Los_Angeles %H:%M}","color":"\#EEEEEE","separator":false}\
 ],
