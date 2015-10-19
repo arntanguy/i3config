@@ -296,6 +296,10 @@ bindsym $mod+g exec ~/.i3/quickswitch.py
 # screen lock
 bindsym Control+$mod+l exec ~/.i3/lock
 
+# sound
+bindsym $mod+Up exec amixer set Master 1+
+bindsym $mod+Down exec amixer set Master 1-
+
 # Desktop background
 exec_always feh --bg-center /media/DATA/Images/Wallpapers/ben_botta_nosepick.jpg
 exec gnome-sound-applet
