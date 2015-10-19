@@ -78,10 +78,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-#bindsym $mod+p focus parent
-bindsym $mod+a focus parent
-# focus the child container
-bindsym $mod+z focus child
+#bindsym $mod+p focus parent (dad)
+bindsym $mod+Shift+d focus parent
+# focus the child container (baby)
+bindsym $mod+Shift+b focus child
 
 # switch to workspace
 #bindsym $mod+ampersand workspace 1
@@ -292,6 +292,9 @@ bindsym $mod+Shift+Up move workspace to output right
 bindsym $mod+Shift+Down move workspace to output left
 
 bindsym $mod+g exec ~/.i3/quickswitch.py
+
+# screen lock
+bindsym Control+$mod+l exec ~/.i3/lock
 
 # Desktop background
 exec_always feh --bg-center /media/DATA/Images/Wallpapers/ben_botta_nosepick.jpg
