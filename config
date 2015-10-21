@@ -26,6 +26,8 @@ set $mod Mod4
 font pango:Bitstream Vera Sans Mono 9
 #font pango:DejaVu Sans Mono 10
 
+focus_follows_mouse no
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -34,7 +36,8 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvt
 
 # kill focused window
-bindsym $mod+Shift+Q kill
+bindsym $mod+Shift+q kill
+bindsym $mod+c kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -48,7 +51,6 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
 
 # move focused window
 bindsym $mod+Shift+h move left
