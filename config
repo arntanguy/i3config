@@ -15,6 +15,11 @@
 # - xdotool
 
 set $mod Mod4
+set $VGA VGA-1-0
+set $HDMI HDMI-1-0
+set $LVDS LVDS-1-0
+# Change wallpaper every N seconds
+set $wallpaper_delay 120
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -37,7 +42,7 @@ bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
-bindsym $mod+c kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -82,8 +87,11 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+d focus parent
 bindsym $mod+Shift+b focus child
 
+bindsym $mod+Ctrl+v layout splitv
+bindsym $mod+Ctrl+b layout splith
+
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -155,6 +163,7 @@ bar {
 
 #assign [class="MATLAB"] "matlab" 
 # Move results to new tag
+assign [class="MATLAB R2015a" title="^Fig"] matlab_fig
 #assign [class="com-mathworks-util-PostVMInit" title="MATLAB  R2012a"] matlab 
 #assign [class="com-mathworks-util-PostVMInit" title="Figure"] matalb_res
 #for_window [class="com-mathworks-util-PostVMInit"] exec ~/.i3/moveto matalb_res 
@@ -168,9 +177,9 @@ bar {
 
 
 # Make the currently focused window a scratchpad
-bindsym $mod+m move scratchpad
+# bindsym $mod+m move scratchpad
 # Show the scratchpad window
-bindsym $mod+Shift+m scratchpad show
+# bindsym $mod+Shift+m scratchpad show
 
 # quake style terminals
 # top
@@ -219,7 +228,7 @@ bindsym $mod+2 exec ~/.i3/goto 2
 bindsym $mod+3 exec ~/.i3/goto 3
 bindsym $mod+4 exec ~/.i3/goto 4
 bindsym $mod+5 exec ~/.i3/goto 5
-bindsym $mod+6 exec ~/.i3/goto 6
+
 bindsym $mod+7 exec ~/.i3/goto 7
 bindsym $mod+8 exec ~/.i3/goto 8
 bindsym $mod+9 exec ~/.i3/goto 9
@@ -262,9 +271,51 @@ bindsym $mod+Shift+n move container to workspace next
 # Move container to workspace prev/next and go there
 bindsym $mod+Ctrl+p move container to workspace prev; workspace prev
 bindsym $mod+Ctrl+n move container to workspace next; workspace next
-# Move workspace to prev/next output
-bindsym $mod+Shift+Up move workspace to output right
-bindsym $mod+Shift+Down move workspace to output left
+
+mode "Move container to WS" {
+  bindsym h move container to workspace prev
+  bindsym l move container to workspace next 
+  bindsym Left move container to workspace prev
+  bindsym Right move container to workspace next 
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+c mode "Move container to WS"
+
+mode "Move container to output" {
+  bindsym h move container to output left
+  bindsym j move container to output down
+  bindsym k move container to output up 
+  bindsym l move container to output right 
+  bindsym Left move container to output left
+  bindsym Down move container to output down
+  bindsym Up move container to output up
+  bindsym Right move container to output right
+  bindsym Shift+v move container to output $VGA
+  bindsym Shift+h move container to output $HDMI
+  bindsym Shift+l move container to output $LVDS
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+Shift+c mode "Move container to output"
+
+# Use modes
+mode "Move workspace" {
+#Move current workspace to different output
+bindsym Left move workspace to output left
+bindsym Right move workspace to output left
+bindsym Down move workspace to output down
+bindsym Up move workspace to output up
+bindsym h move workspace to output left
+bindsym l move workspace to output left
+bindsym j move workspace to output down
+bindsym k move workspace to output up
+bindsym Shift+v move workspace to output $VGA
+bindsym Shift+h move workspace to output $HDMI
+bindsym Shift+l move workspace to output $LVDS
+bindsym Escape mode "default"
+}
+bindsym $mod+w mode "Move workspace"
 
 bindsym $mod+g exec ~/.i3/quickswitch.py
 
@@ -276,7 +327,7 @@ bindsym $mod+Up exec amixer set Master 1+
 bindsym $mod+Down exec amixer set Master 1-
 
 # Desktop background
-exec_always feh --bg-center /media/DATA/Images/Wallpapers/ben_botta_nosepick.jpg
+exec_always ~/.i3/wallpaper.sh $wallpaper_delay
 exec gnome-sound-applet
 
 # vim:filetype=i3
