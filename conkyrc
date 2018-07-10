@@ -71,6 +71,9 @@ TEXT
 {"full_text":"ROOT","color":"\#888888","separator":false,"separator_block_width":6},\
 {"full_text":"${fs_used /}/${fs_size /}","color":"\#EEEEEE","separator":false,"separator_block_width":6},\
 # Disk usage:
+{"full_text":"HOME","color":"\#888888","separator":false,"separator_block_width":6},\
+{"full_text":"${fs_used /home}/${fs_size /}","color":"\#EEEEEE","separator":false,"separator_block_width":6},\
+# Disk usage:
 {"full_text":"DATA","color":"\#888888","separator":false,"separator_block_width":6},\
 {"full_text":"${fs_used /media/DATA}/${fs_size /media/DATA}","color":"\#EEEEEE","separator":false,"separator_block_width":6},\
 # Date:

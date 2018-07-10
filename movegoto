@@ -5,6 +5,7 @@ import i3
 import subprocess
 import utils
 
+utils.sort_workspaces()
 names = utils.get_workspace_names()
 if len(sys.argv) == 1:
     choice = utils.run_dmenu(names, "-p", "movegoto: ")

@@ -11,8 +11,10 @@
 #
 #
 # Requirements:
-# - i3-py
+# - i3-py (pip)
 # - xdotool
+# - i3lock
+# - conky
 
 set $mod Mod4
 set $VGA VGA-1-0
@@ -32,6 +34,7 @@ font pango:Bitstream Vera Sans Mono 9
 #font pango:DejaVu Sans Mono 10
 
 focus_follows_mouse no
+focus_on_window_activation urgent
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -85,7 +88,7 @@ bindsym $mod+space focus mode_toggle
 
 # focus parent/child 
 bindsym $mod+Shift+d focus parent
-bindsym $mod+Shift+b focus child
+bindsym $mod+Shift+c focus child
 
 bindsym $mod+Ctrl+v layout splitv
 bindsym $mod+Ctrl+b layout splith
@@ -164,6 +167,7 @@ bar {
 #assign [class="MATLAB"] "matlab" 
 # Move results to new tag
 assign [class="MATLAB R2015a" title="^Fig"] matlab_fig
+assign [class="MATLAB R2015a" title="^Optimization PlotFcns"] matlab_fig
 #assign [class="com-mathworks-util-PostVMInit" title="MATLAB  R2012a"] matlab 
 #assign [class="com-mathworks-util-PostVMInit" title="Figure"] matalb_res
 #for_window [class="com-mathworks-util-PostVMInit"] exec ~/.i3/moveto matalb_res 
@@ -188,74 +192,74 @@ for_window [instance="scratchpad_urxvt_top"] move to scratchpad, border 1pixel
 bindsym $mod+i exec ~/.i3/urxvtq, [instance="scratchpad_urxvt_top"] scratchpad show, move position 45px 0px
 # 
 # # switch to workspace (fr)
-# bindsym $mod+ampersand  exec ~/.i3/goto 1
-# bindsym $mod+eacute     exec ~/.i3/goto 2
-# bindsym $mod+quotedbl   exec ~/.i3/goto 3
-# bindsym $mod+apostrophe exec ~/.i3/goto 4
-# bindsym $mod+parenleft  exec ~/.i3/goto 5
-# bindsym $mod+minus      exec ~/.i3/goto 6
-# bindsym $mod+egrave     exec ~/.i3/goto 7
-# bindsym $mod+underscore exec ~/.i3/goto 8
-# bindsym $mod+ccedilla   exec ~/.i3/goto 9
-# bindsym $mod+agrave     exec ~/.i3/goto 10
+bindsym $mod+ampersand  exec ~/.i3/goto 1
+bindsym $mod+eacute     exec ~/.i3/goto 2
+bindsym $mod+quotedbl   exec ~/.i3/goto 3
+bindsym $mod+apostrophe exec ~/.i3/goto 4
+bindsym $mod+parenleft  exec ~/.i3/goto 5
+bindsym $mod+minus      exec ~/.i3/goto 6
+bindsym $mod+egrave     exec ~/.i3/goto 7
+bindsym $mod+underscore exec ~/.i3/goto 8
+bindsym $mod+ccedilla   exec ~/.i3/goto 9
+bindsym $mod+agrave     exec ~/.i3/goto 10
 # 
 # # move focused container to workspace
-# bindsym $mod+Shift+ampersand  exec ~/.i3/moveto 1
-# bindsym $mod+Shift+eacute     exec ~/.i3/moveto 2
-# bindsym $mod+Shift+quotedbl   exec ~/.i3/moveto 3
-# bindsym $mod+Shift+apostrophe exec ~/.i3/moveto 4
-# bindsym $mod+Shift+parenleft  exec ~/.i3/moveto 5
-# bindsym $mod+Shift+minus      exec ~/.i3/moveto 6
-# bindsym $mod+Shift+egrave     exec ~/.i3/moveto 7
-# bindsym $mod+Shift+underscore exec ~/.i3/moveto 8
-# bindsym $mod+Shift+ccedilla   exec ~/.i3/moveto 9
-# bindsym $mod+Shift+agrave     exec ~/.i3/moveto 10
+bindsym $mod+Shift+ampersand  exec ~/.i3/moveto 1
+bindsym $mod+Shift+eacute     exec ~/.i3/moveto 2
+bindsym $mod+Shift+quotedbl   exec ~/.i3/moveto 3
+bindsym $mod+Shift+apostrophe exec ~/.i3/moveto 4
+bindsym $mod+Shift+parenleft  exec ~/.i3/moveto 5
+bindsym $mod+Shift+minus      exec ~/.i3/moveto 6
+bindsym $mod+Shift+egrave     exec ~/.i3/moveto 7
+bindsym $mod+Shift+underscore exec ~/.i3/moveto 8
+bindsym $mod+Shift+ccedilla   exec ~/.i3/moveto 9
+bindsym $mod+Shift+agrave     exec ~/.i3/moveto 10
 # 
-# bindsym $mod+Ctrl+Shift+ampersand  exec ~/.i3/movegoto 1
-# bindsym $mod+Ctrl+Shift+eacute     exec ~/.i3/movegoto 2
-# bindsym $mod+Ctrl+Shift+quotedbl   exec ~/.i3/movegoto 3
-# bindsym $mod+Ctrl+Shift+apostrophe exec ~/.i3/movegoto 4
-# bindsym $mod+Ctrl+Shift+parenleft  exec ~/.i3/movegoto 5
-# bindsym $mod+Ctrl+Shift+minus      exec ~/.i3/movegoto 6
-# bindsym $mod+Ctrl+Shift+egrave     exec ~/.i3/movegoto 7
-# bindsym $mod+Ctrl+Shift+underscore exec ~/.i3/movegoto 8
-# bindsym $mod+Ctrl+Shift+ccedilla   exec ~/.i3/movegoto 9
-# bindsym $mod+Ctrl+Shift+agrave     exec ~/.i3/movegoto 10
+bindsym $mod+Ctrl+Shift+ampersand  exec ~/.i3/movegoto 1
+bindsym $mod+Ctrl+Shift+eacute     exec ~/.i3/movegoto 2
+bindsym $mod+Ctrl+Shift+quotedbl   exec ~/.i3/movegoto 3
+bindsym $mod+Ctrl+Shift+apostrophe exec ~/.i3/movegoto 4
+bindsym $mod+Ctrl+Shift+parenleft  exec ~/.i3/movegoto 5
+bindsym $mod+Ctrl+Shift+minus      exec ~/.i3/movegoto 6
+bindsym $mod+Ctrl+Shift+egrave     exec ~/.i3/movegoto 7
+bindsym $mod+Ctrl+Shift+underscore exec ~/.i3/movegoto 8
+bindsym $mod+Ctrl+Shift+ccedilla   exec ~/.i3/movegoto 9
+bindsym $mod+Ctrl+Shift+agrave     exec ~/.i3/movegoto 10
 # 
 # switch to workspace
-bindsym $mod+1 exec ~/.i3/goto 1
-bindsym $mod+2 exec ~/.i3/goto 2
-bindsym $mod+3 exec ~/.i3/goto 3
-bindsym $mod+4 exec ~/.i3/goto 4
-bindsym $mod+5 exec ~/.i3/goto 5
+# bindsym $mod+1 exec ~/.i3/goto 1
+# bindsym $mod+2 exec ~/.i3/goto 2
+# bindsym $mod+3 exec ~/.i3/goto 3
+# bindsym $mod+4 exec ~/.i3/goto 4
+# bindsym $mod+5 exec ~/.i3/goto 5
 
-bindsym $mod+7 exec ~/.i3/goto 7
-bindsym $mod+8 exec ~/.i3/goto 8
-bindsym $mod+9 exec ~/.i3/goto 9
-bindsym $mod+0 exec ~/.i3/goto 10
+# bindsym $mod+7 exec ~/.i3/goto 7
+# bindsym $mod+8 exec ~/.i3/goto 8
+# bindsym $mod+9 exec ~/.i3/goto 9
+# bindsym $mod+0 exec ~/.i3/goto 10
 
-# move focused container to workspace
-bindsym $mod+Shift+1 exec ~/.i3/moveto 1
-bindsym $mod+Shift+2 exec ~/.i3/moveto 2
-bindsym $mod+Shift+3 exec ~/.i3/moveto 3
-bindsym $mod+Shift+4 exec ~/.i3/moveto 4
-bindsym $mod+Shift+5 exec ~/.i3/moveto 5
-bindsym $mod+Shift+6 exec ~/.i3/moveto 6
-bindsym $mod+Shift+7 exec ~/.i3/moveto 7
-bindsym $mod+Shift+8 exec ~/.i3/moveto 8
-bindsym $mod+Shift+9 exec ~/.i3/moveto 9
-bindsym $mod+Shift+0 exec ~/.i3/moveto 10
+# # move focused container to workspace
+# bindsym $mod+Shift+1 exec ~/.i3/moveto 1
+# bindsym $mod+Shift+2 exec ~/.i3/moveto 2
+# bindsym $mod+Shift+3 exec ~/.i3/moveto 3
+# bindsym $mod+Shift+4 exec ~/.i3/moveto 4
+# bindsym $mod+Shift+5 exec ~/.i3/moveto 5
+# bindsym $mod+Shift+6 exec ~/.i3/moveto 6
+# bindsym $mod+Shift+7 exec ~/.i3/moveto 7
+# bindsym $mod+Shift+8 exec ~/.i3/moveto 8
+# bindsym $mod+Shift+9 exec ~/.i3/moveto 9
+# bindsym $mod+Shift+0 exec ~/.i3/moveto 10
 
-bindsym $mod+Ctrl+Shift+1 exec ~/.i3/movegoto 1
-bindsym $mod+Ctrl+Shift+2 exec ~/.i3/movegoto 2
-bindsym $mod+Ctrl+Shift+3 exec ~/.i3/movegoto 3
-bindsym $mod+Ctrl+Shift+4 exec ~/.i3/movegoto 4
-bindsym $mod+Ctrl+Shift+5 exec ~/.i3/movegoto 5
-bindsym $mod+Ctrl+Shift+6 exec ~/.i3/movegoto 6
-bindsym $mod+Ctrl+Shift+7 exec ~/.i3/movegoto 7
-bindsym $mod+Ctrl+Shift+8 exec ~/.i3/movegoto 8
-bindsym $mod+Ctrl+Shift+9 exec ~/.i3/movegoto 9
-bindsym $mod+Ctrl+Shift+0 exec ~/.i3/movegoto 10
+# bindsym $mod+Ctrl+Shift+1 exec ~/.i3/movegoto 1
+# bindsym $mod+Ctrl+Shift+2 exec ~/.i3/movegoto 2
+# bindsym $mod+Ctrl+Shift+3 exec ~/.i3/movegoto 3
+# bindsym $mod+Ctrl+Shift+4 exec ~/.i3/movegoto 4
+# bindsym $mod+Ctrl+Shift+5 exec ~/.i3/movegoto 5
+# bindsym $mod+Ctrl+Shift+6 exec ~/.i3/movegoto 6
+# bindsym $mod+Ctrl+Shift+7 exec ~/.i3/movegoto 7
+# bindsym $mod+Ctrl+Shift+8 exec ~/.i3/movegoto 8
+# bindsym $mod+Ctrl+Shift+9 exec ~/.i3/movegoto 9
+# bindsym $mod+Ctrl+Shift+0 exec ~/.i3/movegoto 10
 
 bindsym $mod+t exec ~/.i3/goto
 bindsym $mod+Shift+t exec ~/.i3/moveto
@@ -297,7 +301,7 @@ mode "Move container to output" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-bindsym $mod+Shift+c mode "Move container to output"
+bindsym $mod+Shift+o mode "Move container to output"
 
 # Use modes
 mode "Move workspace" {
@@ -329,5 +333,6 @@ bindsym $mod+Down exec amixer set Master 1-
 # Desktop background
 exec_always ~/.i3/wallpaper.sh $wallpaper_delay
 exec gnome-sound-applet
+exec --no-startup-id redshift-gtk
 
 # vim:filetype=i3

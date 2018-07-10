@@ -44,7 +44,7 @@ def sort_workspaces():
           w_name = name[3:]
           new_name = "%i: %s"  % (i+1, w_name)
         else:
-          new_name = name; 
+            new_name = "%i: %s" % (i+1, name); 
         print 'rename workspace "%s" to "%s"' % (name, new_name)
         if new_name != name:
             cmd = 'rename workspace "%s" to "%s"' % (name, new_name)
