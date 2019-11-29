@@ -7,6 +7,18 @@ TEXT
 
 [\
 # Kernel:
+{
+  "full_text": "BAT",
+  "color":"\#888888",
+  "separator":false,
+  "separator_block_width":6
+},
+{
+  "full_text": "${exec acpi -b | awk '{print $4}'}",
+  "color":"\#EEEEEE",
+  "separator":false,
+  "separator_block_width":6
+},
 {"full_text":"SOUND","color":"\#888888","separator":false,"separator_block_width":6},\
 {"full_text":"${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6 | sed 's/\[//g' | sed 's/\]//g'}","color":"\#EEEEEE","separator":false,"separator_block_width":6},\
 {"full_text": "${if_match ${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f8 | sed 's/\[//g' | sed 's/\]//g'|wc -c}==3}on","color":"\#AAF096","separator":false,"separator_block_width":6},\
