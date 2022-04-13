@@ -1,5 +1,15 @@
 import subprocess
-import i3
+from i3ipc import Connection
+
+i3 = Connection()
+# Print the name of the focused window
+focused = i3.get_tree().find_focused()
+print('Focused window %s is on workspace %s' %
+      (focused.name, focused.workspace().name))
+
+def command(cmd):
+    print("Executing i3 command: %s" % cmd)
+    i3.command(cmd)
 
 def run_dmenu(menu, *args):
     """ Run dmenu
@@ -12,16 +22,15 @@ def run_dmenu(menu, *args):
     process = subprocess.Popen(["dmenu"] + list(args),
         stdout=subprocess.PIPE,
         stdin=subprocess.PIPE)
-    process.stdin.write("\n".join(menu)+"\n")
-    out = process.communicate()[0]
-    return out.strip()
+    out = process.communicate(input=("\n".join(menu)+"\n").encode('utf-8'))[0]
+    return out.strip().decode('utf-8')
 
 def get_workspace_names():
     """ Get the list of workspace names
 
     """
     workspaces = i3.get_workspaces()
-    return [x['name'] for x in workspaces]
+    return [x.name for x in workspaces]
 
 def insert_new_workspace(workspaces, name):
     new_index = 1
@@ -31,7 +40,7 @@ def insert_new_workspace(workspaces, name):
             new_index = w_index + 1
         else:
             new_name = "%i: %s" % (w_index+1, w_name)
-            i3.command('rename workspace "%s" to "%s"' % (workspace, new_name))
+            command('rename workspace "%s" to "%s"' % (workspace, new_name))
     new_name = "%i: %s" % (new_index, name)
     return new_name
 
@@ -45,7 +54,6 @@ def sort_workspaces():
           new_name = "%i: %s"  % (i+1, w_name)
         else:
             new_name = "%i: %s" % (i+1, name); 
-        print 'rename workspace "%s" to "%s"' % (name, new_name)
         if new_name != name:
             cmd = 'rename workspace "%s" to "%s"' % (name, new_name)
-            i3.command(cmd)
+            command(cmd)

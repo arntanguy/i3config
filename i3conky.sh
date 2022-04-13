@@ -2,4 +2,4 @@
 echo '{"version":1}'
 echo '['
 echo '[],'
-exec conky -c ~/.i3/conkyrc 
+exec conky -c ~/.config/regolith/i3/conky.lua 

@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 
 import sys
 import i3
@@ -19,6 +19,6 @@ else:
         choice = str(index)+": "
     else:
         choice = names[ind]
-print choice
+print(choice)
 i3.command("workspace", choice)
 utils.sort_workspaces()

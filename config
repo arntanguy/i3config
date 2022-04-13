@@ -15,6 +15,7 @@
 # - xdotool
 # - i3lock
 # - conky
+# - feh (wallpaper)
 
 set $mod Mod4
 set $VGA VGA-1-0
@@ -42,11 +43,11 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec gnome-terminal
-bindsym $mod+Ctrl+c exec ~/.i3/i3GnomeSettings.sh
+bindsym $mod+Ctrl+c exec ~/.config/regolith/i3/i3GnomeSettings.sh
 
 # Brightness control
-bindsym XF86MonBrightnessUp exec ~/.i3/change_brightness.sh 100
-bindsym XF86MonBrightnessDown exec ~/.i3/change_brightness.sh -100
+bindsym XF86MonBrightnessUp exec ~/.config/regolith/i3/change_brightness.sh 100
+bindsym XF86MonBrightnessDown exec ~/.config/regolith/i3/change_brightness.sh -100
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -114,7 +115,7 @@ bindsym $mod+Ctrl+b layout splith
 # bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
+# exit i3 - log out (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
@@ -165,9 +166,7 @@ client.urgent               $rd        $rd         $tx
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command ~/.i3/i3conky.sh
-
-
+    status_command ~/.config/regolith/i3/i3conky.sh
     position top
     workspace_buttons yes
     colors {
@@ -187,7 +186,7 @@ assign [class="MATLAB R2015a" title="^Fig"] matlab_fig
 assign [class="MATLAB R2015a" title="^Optimization PlotFcns"] matlab_fig
 #assign [class="com-mathworks-util-PostVMInit" title="MATLAB  R2012a"] matlab 
 #assign [class="com-mathworks-util-PostVMInit" title="Figure"] matalb_res
-#for_window [class="com-mathworks-util-PostVMInit"] exec ~/.i3/moveto matalb_res 
+#for_window [class="com-mathworks-util-PostVMInit"] exec ~/.config/regolith/i3/moveto matalb_res 
 #assign [class="Thunderbird"] 2: mail
 
 # Correct handling of dialogs
@@ -204,84 +203,84 @@ assign [class="MATLAB R2015a" title="^Optimization PlotFcns"] matlab_fig
 
 # quake style terminals
 # top
-exec ~/.i3/urxvtq
+exec ~/.config/regolith/i3/urxvtq
 for_window [instance="scratchpad_urxvt_top"] move to scratchpad, border 1pixel
-bindsym $mod+i exec ~/.i3/urxvtq, [instance="scratchpad_urxvt_top"] scratchpad show, move position 45px 0px
+bindsym $mod+i exec ~/.config/regolith/i3/urxvtq, [instance="scratchpad_urxvt_top"] scratchpad show, move position 45px 0px
 # 
 # # switch to workspace (fr)
-# bindsym $mod+ampersand  exec ~/.i3/goto 1
-# bindsym $mod+eacute     exec ~/.i3/goto 2
-# bindsym $mod+quotedbl   exec ~/.i3/goto 3
-# bindsym $mod+apostrophe exec ~/.i3/goto 4
-# bindsym $mod+parenleft  exec ~/.i3/goto 5
-# bindsym $mod+minus      exec ~/.i3/goto 6
-# bindsym $mod+egrave     exec ~/.i3/goto 7
-# bindsym $mod+underscore exec ~/.i3/goto 8
-# bindsym $mod+ccedilla   exec ~/.i3/goto 9
-# bindsym $mod+agrave     exec ~/.i3/goto 10
+# bindsym $mod+ampersand  exec ~/.config/regolith/i3/goto 1
+# bindsym $mod+eacute     exec ~/.config/regolith/i3/goto 2
+# bindsym $mod+quotedbl   exec ~/.config/regolith/i3/goto 3
+# bindsym $mod+apostrophe exec ~/.config/regolith/i3/goto 4
+# bindsym $mod+parenleft  exec ~/.config/regolith/i3/goto 5
+# bindsym $mod+minus      exec ~/.config/regolith/i3/goto 6
+# bindsym $mod+egrave     exec ~/.config/regolith/i3/goto 7
+# bindsym $mod+underscore exec ~/.config/regolith/i3/goto 8
+# bindsym $mod+ccedilla   exec ~/.config/regolith/i3/goto 9
+# bindsym $mod+agrave     exec ~/.config/regolith/i3/goto 10
 # # 
 # # # move focused container to workspace
-# bindsym $mod+Shift+ampersand  exec ~/.i3/moveto 1
-# bindsym $mod+Shift+eacute     exec ~/.i3/moveto 2
-# bindsym $mod+Shift+quotedbl   exec ~/.i3/moveto 3
-# bindsym $mod+Shift+apostrophe exec ~/.i3/moveto 4
-# bindsym $mod+Shift+parenleft  exec ~/.i3/moveto 5
-# bindsym $mod+Shift+minus      exec ~/.i3/moveto 6
-# bindsym $mod+Shift+egrave     exec ~/.i3/moveto 7
-# bindsym $mod+Shift+underscore exec ~/.i3/moveto 8
-# bindsym $mod+Shift+ccedilla   exec ~/.i3/moveto 9
-# bindsym $mod+Shift+agrave     exec ~/.i3/moveto 10
+# bindsym $mod+Shift+ampersand  exec ~/.config/regolith/i3/moveto 1
+# bindsym $mod+Shift+eacute     exec ~/.config/regolith/i3/moveto 2
+# bindsym $mod+Shift+quotedbl   exec ~/.config/regolith/i3/moveto 3
+# bindsym $mod+Shift+apostrophe exec ~/.config/regolith/i3/moveto 4
+# bindsym $mod+Shift+parenleft  exec ~/.config/regolith/i3/moveto 5
+# bindsym $mod+Shift+minus      exec ~/.config/regolith/i3/moveto 6
+# bindsym $mod+Shift+egrave     exec ~/.config/regolith/i3/moveto 7
+# bindsym $mod+Shift+underscore exec ~/.config/regolith/i3/moveto 8
+# bindsym $mod+Shift+ccedilla   exec ~/.config/regolith/i3/moveto 9
+# bindsym $mod+Shift+agrave     exec ~/.config/regolith/i3/moveto 10
 # # 
-# bindsym $mod+Ctrl+Shift+ampersand  exec ~/.i3/movegoto 1
-# bindsym $mod+Ctrl+Shift+eacute     exec ~/.i3/movegoto 2
-# bindsym $mod+Ctrl+Shift+quotedbl   exec ~/.i3/movegoto 3
-# bindsym $mod+Ctrl+Shift+apostrophe exec ~/.i3/movegoto 4
-# bindsym $mod+Ctrl+Shift+parenleft  exec ~/.i3/movegoto 5
-# bindsym $mod+Ctrl+Shift+minus      exec ~/.i3/movegoto 6
-# bindsym $mod+Ctrl+Shift+egrave     exec ~/.i3/movegoto 7
-# bindsym $mod+Ctrl+Shift+underscore exec ~/.i3/movegoto 8
-# bindsym $mod+Ctrl+Shift+ccedilla   exec ~/.i3/movegoto 9
-# bindsym $mod+Ctrl+Shift+agrave     exec ~/.i3/movegoto 10
+# bindsym $mod+Ctrl+Shift+ampersand  exec ~/.config/regolith/i3/movegoto 1
+# bindsym $mod+Ctrl+Shift+eacute     exec ~/.config/regolith/i3/movegoto 2
+# bindsym $mod+Ctrl+Shift+quotedbl   exec ~/.config/regolith/i3/movegoto 3
+# bindsym $mod+Ctrl+Shift+apostrophe exec ~/.config/regolith/i3/movegoto 4
+# bindsym $mod+Ctrl+Shift+parenleft  exec ~/.config/regolith/i3/movegoto 5
+# bindsym $mod+Ctrl+Shift+minus      exec ~/.config/regolith/i3/movegoto 6
+# bindsym $mod+Ctrl+Shift+egrave     exec ~/.config/regolith/i3/movegoto 7
+# bindsym $mod+Ctrl+Shift+underscore exec ~/.config/regolith/i3/movegoto 8
+# bindsym $mod+Ctrl+Shift+ccedilla   exec ~/.config/regolith/i3/movegoto 9
+# bindsym $mod+Ctrl+Shift+agrave     exec ~/.config/regolith/i3/movegoto 10
 # 
 # switch to workspace (en)
-bindsym $mod+1 exec ~/.i3/goto 1
-bindsym $mod+2 exec ~/.i3/goto 2
-bindsym $mod+3 exec ~/.i3/goto 3
-bindsym $mod+4 exec ~/.i3/goto 4
-bindsym $mod+5 exec ~/.i3/goto 5
+bindsym $mod+1 exec ~/.config/regolith/i3/goto 1
+bindsym $mod+2 exec ~/.config/regolith/i3/goto 2
+bindsym $mod+3 exec ~/.config/regolith/i3/goto 3
+bindsym $mod+4 exec ~/.config/regolith/i3/goto 4
+bindsym $mod+5 exec ~/.config/regolith/i3/goto 5
 
-bindsym $mod+7 exec ~/.i3/goto 7
-bindsym $mod+8 exec ~/.i3/goto 8
-bindsym $mod+9 exec ~/.i3/goto 9
-bindsym $mod+0 exec ~/.i3/goto 10
+bindsym $mod+7 exec ~/.config/regolith/i3/goto 7
+bindsym $mod+8 exec ~/.config/regolith/i3/goto 8
+bindsym $mod+9 exec ~/.config/regolith/i3/goto 9
+bindsym $mod+0 exec ~/.config/regolith/i3/goto 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 exec ~/.i3/moveto 1
-bindsym $mod+Shift+2 exec ~/.i3/moveto 2
-bindsym $mod+Shift+3 exec ~/.i3/moveto 3
-bindsym $mod+Shift+4 exec ~/.i3/moveto 4
-bindsym $mod+Shift+5 exec ~/.i3/moveto 5
-bindsym $mod+Shift+6 exec ~/.i3/moveto 6
-bindsym $mod+Shift+7 exec ~/.i3/moveto 7
-bindsym $mod+Shift+8 exec ~/.i3/moveto 8
-bindsym $mod+Shift+9 exec ~/.i3/moveto 9
-bindsym $mod+Shift+0 exec ~/.i3/moveto 10
+bindsym $mod+Shift+1 exec ~/.config/regolith/i3/moveto 1
+bindsym $mod+Shift+2 exec ~/.config/regolith/i3/moveto 2
+bindsym $mod+Shift+3 exec ~/.config/regolith/i3/moveto 3
+bindsym $mod+Shift+4 exec ~/.config/regolith/i3/moveto 4
+bindsym $mod+Shift+5 exec ~/.config/regolith/i3/moveto 5
+bindsym $mod+Shift+6 exec ~/.config/regolith/i3/moveto 6
+bindsym $mod+Shift+7 exec ~/.config/regolith/i3/moveto 7
+bindsym $mod+Shift+8 exec ~/.config/regolith/i3/moveto 8
+bindsym $mod+Shift+9 exec ~/.config/regolith/i3/moveto 9
+bindsym $mod+Shift+0 exec ~/.config/regolith/i3/moveto 10
 
-bindsym $mod+Ctrl+Shift+1 exec ~/.i3/movegoto 1
-bindsym $mod+Ctrl+Shift+2 exec ~/.i3/movegoto 2
-bindsym $mod+Ctrl+Shift+3 exec ~/.i3/movegoto 3
-bindsym $mod+Ctrl+Shift+4 exec ~/.i3/movegoto 4
-bindsym $mod+Ctrl+Shift+5 exec ~/.i3/movegoto 5
-bindsym $mod+Ctrl+Shift+6 exec ~/.i3/movegoto 6
-bindsym $mod+Ctrl+Shift+7 exec ~/.i3/movegoto 7
-bindsym $mod+Ctrl+Shift+8 exec ~/.i3/movegoto 8
-bindsym $mod+Ctrl+Shift+9 exec ~/.i3/movegoto 9
-bindsym $mod+Ctrl+Shift+0 exec ~/.i3/movegoto 10
+bindsym $mod+Ctrl+Shift+1 exec ~/.config/regolith/i3/movegoto 1
+bindsym $mod+Ctrl+Shift+2 exec ~/.config/regolith/i3/movegoto 2
+bindsym $mod+Ctrl+Shift+3 exec ~/.config/regolith/i3/movegoto 3
+bindsym $mod+Ctrl+Shift+4 exec ~/.config/regolith/i3/movegoto 4
+bindsym $mod+Ctrl+Shift+5 exec ~/.config/regolith/i3/movegoto 5
+bindsym $mod+Ctrl+Shift+6 exec ~/.config/regolith/i3/movegoto 6
+bindsym $mod+Ctrl+Shift+7 exec ~/.config/regolith/i3/movegoto 7
+bindsym $mod+Ctrl+Shift+8 exec ~/.config/regolith/i3/movegoto 8
+bindsym $mod+Ctrl+Shift+9 exec ~/.config/regolith/i3/movegoto 9
+bindsym $mod+Ctrl+Shift+0 exec ~/.config/regolith/i3/movegoto 10
 
-bindsym $mod+t exec ~/.i3/goto
-bindsym $mod+Shift+t exec ~/.i3/moveto
-bindsym $mod+Ctrl+t exec ~/.i3/movegoto 
-bindsym $mod+Shift+s exec ~/.i3/sort
+bindsym $mod+t exec ~/.config/regolith/i3/goto
+bindsym $mod+Shift+t exec ~/.config/regolith/i3/moveto
+bindsym $mod+Ctrl+t exec ~/.config/regolith/i3/movegoto 
+bindsym $mod+Shift+s exec ~/.config/regolith/i3/sort
         
 # alternatively, you can use the cursor keys:
 bindsym $mod+p workspace prev
@@ -338,17 +337,17 @@ bindsym Escape mode "default"
 }
 bindsym $mod+w mode "Move workspace"
 
-bindsym $mod+g exec ~/.i3/quickswitch.py
+bindsym $mod+g exec ~/.config/regolith/i3/quickswitch.py
 
 # screen lock
-bindsym Control+$mod+l exec ~/.i3/lock
+bindsym Control+$mod+l exec ~/.config/regolith/i3/lock
 
 # sound
 bindsym $mod+Up exec amixer set Master 1+
 bindsym $mod+Down exec amixer set Master 1-
 
 # Desktop background
-exec_always ~/.i3/wallpaper.sh $wallpaper_delay
+exec_always ~/.config/regolith/i3/wallpaper.sh $wallpaper_delay
 exec gnome-sound-applet
 exec --no-startup-id redshift-gtk
 
