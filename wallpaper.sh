@@ -8,8 +8,9 @@ fi
 
 delay=${1-60}
 while true; do
-for wallpaper in ~/.i3/wallpapers/*; do
-  feh --bg-center $wallpaper 
+for wallpaper in ~/.config/regolith/i3/wallpapers/*; do
+  feh --bg-center "$wallpaper"
+  echo "change wallpaper $wallpaper" >> /tmp/wallpaper.log
   sleep $delay 
 done
 done
